@@ -10,12 +10,12 @@ public class Övn9_10 {
 		System.out.println(variationsbredd(falt));
 
 	}
-	static double variationsbredd(double falt[]) {
+	static double variationsbredd(double arr[]) {
 		
 		
-		return 	Arrays.stream(falt)
+		return 	Arrays.stream(arr)
 				.sorted()
-				.filter(e -> falt[0]==e || falt[falt.length-1]==e)
+				.filter(e -> arr[0]==e || arr[arr.length-1]==e)
 				.reduce(0, (subtotal,element)->element-subtotal);
 	}
 }
