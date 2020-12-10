@@ -1,5 +1,5 @@
 package prog1övningar;
-
+//https://go.codetogether.com/#/iWYj6qPzDpMjLT2FEqmb4f/IfHfxtaTMmaBckiy8g3OpN
 import java.util.stream.IntStream;
 
 public class Övn9_7 {
