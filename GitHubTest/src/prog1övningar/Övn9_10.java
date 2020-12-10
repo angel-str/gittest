@@ -13,9 +13,10 @@ public class Övn9_10 {
 	static double variationsbredd(double falt[]) {
 		
 		
-		return Arrays.stream(falt)
-				.sorted()
-				.filter(e -> falt[0]==e || falt[falt.length-1]==e)
-				.reduce(0,(falt[1],falt[0]) -> falt[1]-falt[0]);
+		return 0;
+				//Arrays.stream(falt)
+				//.sorted()
+				//.filter(e -> falt[0]==e || falt[falt.length-1]==e)
+				//.reduce(0,(falt[1],falt[0]) -> falt[1]-falt[0]);
 	}
 }
