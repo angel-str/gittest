@@ -5,7 +5,7 @@ import java.awt.Graphics;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-//Update
+
 public class MovingPolygon extends JComponent {
 	
 	static final int xPos = 150;
