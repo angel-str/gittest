@@ -18,17 +18,18 @@ public class Övn9_10 {
 	static double variationsbredd(double arr[]) {
 		
 		return 	Arrays.stream(arr)
-				.sorted()
 				.filter(e -> min(e,arr) || max(e,arr))
+				.peek(e -> System.out.println("Filtered: "+e))
 				.filter(e -> findDubbles(e, arr))
+				.peek(e -> System.out.println("No dubbles: "+e))
 				.reduce(0, (subtotal,element)->element-subtotal);
 	}
 
+
 	
-	
-	private static boolean findDubbles(double e, double[] arr) {
+	private static boolean findDubbles(double num, double[] arr) {
 		return 1==Arrays.stream(arr)
-				.filter(element -> element==e)
+				.filter(e -> e==num)
 				.count();
 	}
 
