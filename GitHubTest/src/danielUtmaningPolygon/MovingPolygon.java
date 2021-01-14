@@ -38,7 +38,7 @@ public class MovingPolygon extends JComponent {
 		
 		JFrame f = new JFrame();
 		
-		f.setSize(400,400);
+		f.setSize(1000,1000);
 		f.setVisible(true);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setLocationRelativeTo(null);
@@ -48,17 +48,31 @@ public class MovingPolygon extends JComponent {
 		while(true) {
 			
 			move();
+			f.repaint();
 			
-			System.out.println(v);
-			System.out.println(r);
 			Thread.sleep(100);
-			break;
+			
+			System.out.println(v+", "+r);
+			System.out.println("("+xPoints[1]+","+yPoints[1]+")");
 		}
 		
 	}
 	static void move() {
 		
-		v--;
+		v++;
 		
+		System.out.println(calcX()+" "+calcY());
+		
+		xPoints[1]=calcX();
+		yPoints[1]=calcY();
+		
+	}
+	
+	
+	static int calcX() {
+		return (int) (Math.toDegrees(Math.cos(Math.toRadians(v)))*r);
+	}
+	static int calcY() {
+		return (int) (Math.sin(Math.toRadians(v))*r);
 	}
 }
