@@ -1,59 +1,78 @@
 package pacmanUpg;
 
 import java.awt.Color;
+import java.awt.Container;
 
-public class Figur {
+import javax.swing.JComponent;
+
+public abstract class Figur {
 	
-	private int r = 50;
-	private int x = 0;
-	private int y = 0;
-	private int v=30;
-	private Color c = Color.YELLOW;
-	private boolean mouth = true;
 	
-	int[] shapeX = new int[3];
-	int[] shapeY = new int[3];
+	//Instansvaribabler
+	Game g = new Game();
 	
-	public int[] getXarr(int v){
+	
+	protected int x = 0;
+	protected int y = 0;
+	int height=25;
+	int width=25;
+
+	protected int xDir=0;
+	protected int yDir=0;
+	protected int velocity=4;
+
+	protected Color color = Color.BLACK;
+	protected boolean visible = true;
+	
+	
+	//Konstruktor
+	public Figur(int x) {
+		this.x=x;
 		
-		this.v=v;
-		
-		shapeX[0]= (int) (x+2*r);
-		shapeX[1]=x+r;
-		shapeX[2]=shapeX[0];
-		
-		return shapeX;
-	}
-	public int[] getYarr(int v){
-		
-		this.v=v;
-		
-		shapeY[0] = (int) (y+r-Math.tan(Math.toRadians(v))*r);
-		shapeY[1] = y+r;
-		shapeY[2] = (int) (y+r+Math.tan(Math.toRadians(v))*r);
-		
-		return shapeY;
 	}
 
-	public boolean ifMouth() {
-		return mouth;
-	}
-	public void changeMouth() {
-		if(mouth) {
-			mouth=false;
-		}else {
-			mouth=true;
-		}
-	}
-
-	public int getR() {
-		return r;
+	
+	//Move
+	public void updPos() {
+		
+		int x = getX();
+		int y = getY();
+		
+		setY(y+getVelocity()*getyDir());
+		setX(x+getVelocity()*getxDir());
+		
+		
+		g.inBounds(x, y, x, y);
+		
+		
+//		if(!Game.inBounds(getX(), getY(),height, width)) {
+//			
+//			setY(y);
+//			setX(x);
+//		}
 	}
 	
-	public int getV() {
-		return v;
+	
+	//Getters / Setters
+	public int getxDir() {
+		return xDir;
 	}
-
+	public void setxDir(int xDir) {
+		this.xDir = xDir;
+		yDir=0;
+	}
+	public int getyDir() {
+		return yDir;
+	}
+	public void setyDir(int yDir) {
+		this.yDir = yDir;
+		xDir=0;
+	}
+	
+	public int getVelocity() {
+		return velocity;
+	}
+	
 	public int getX() {
 		return x;
 	}
@@ -71,6 +90,6 @@ public class Figur {
 	}
 
 	public Color getColor() {
-		return c;
+		return color;
 	}
 }
