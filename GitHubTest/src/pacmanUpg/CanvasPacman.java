@@ -14,7 +14,10 @@ public class CanvasPacman extends JComponent implements KeyListener {
 
 	
 	//Instansvariabler
-	Pacman pM = new Pacman(0);
+	static CanvasPacman c = new CanvasPacman();
+	Pacman pM = new Pacman(c);
+	
+	
 	
 	private final int updFrequecy = 10;
 	private final int ff = pM.getMouthSpeed()/updFrequecy;
@@ -69,7 +72,6 @@ public class CanvasPacman extends JComponent implements KeyListener {
 
 		JFrame f = new JFrame();
 		f.setLayout(new FlowLayout());
-		CanvasPacman c = new CanvasPacman();
 		
 		f.setContentPane(c);	//Sätt först
 		f.setVisible(true);

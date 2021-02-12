@@ -14,9 +14,6 @@ public class Game {
 		System.out.println(canvas.getComponentAt(100,100));
 		
 	}
-	public Game() {
-		
-	}
 	
 	boolean inBounds(int x, int y, int height, int width) {
 		

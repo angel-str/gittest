@@ -9,7 +9,8 @@ public abstract class Figur {
 	
 	
 	//Instansvaribabler
-	Game g = new Game();
+	Container cont;
+	Game g = new Game(cont);
 	
 	
 	protected int x = 0;
@@ -26,8 +27,8 @@ public abstract class Figur {
 	
 	
 	//Konstruktor
-	public Figur(int x) {
-		this.x=x;
+	public Figur(Container cont) {
+		this.cont=cont;
 		
 	}
 

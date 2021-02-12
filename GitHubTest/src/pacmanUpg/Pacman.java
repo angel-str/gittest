@@ -7,6 +7,7 @@
 package pacmanUpg;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Graphics;
 
 public class Pacman extends Figur{
@@ -24,8 +25,8 @@ public class Pacman extends Figur{
 	
 	
 	//Konstruktor
-	public Pacman(int xx) {
-		super(xx);
+	public Pacman(Container cont) {
+		super(cont);
 		super.color=Color.YELLOW;
 		
 	}
